@@ -1,0 +1,30 @@
+{
+  "name": "el-component",
+  "version": "0.0.0",
+  "description": "create HTML from jade-like expressions",
+  "main": "index.js",
+  "scripts": {
+    "test": "make check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code42day/el-component.git"
+  },
+  "keywords": [
+    "component-js",
+    "HTML",
+    "jade",
+    "DOM"
+  ],
+  "author": "Damian Krzeminski <pirxpilot@code42day.com>",
+  "license": "MIT",
+  "readmeFilename": "Readme.md",
+  "bugs": {
+    "url": "https://github.com/code42day/el-component/issues"
+  },
+  "devDependencies": {
+    "mocha": "~1",
+    "should": "~2",
+    "jshint": "~2"
+  }
+}

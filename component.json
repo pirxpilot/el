@@ -1,0 +1,14 @@
+{
+  "name": "el",
+  "repo": "code42day/el",
+  "description": "creates HTML from jade like expressions",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
