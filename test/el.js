@@ -26,4 +26,10 @@ describe('el', function() {
     el('span#title.car.a.b', 'Title').should.eql('<span class="car a b" id="title">Title</span>');
     el('#title.car', 'Title').should.eql('<div class="car" id="title">Title</div>');
   });
+
+  it('should treat void elements differently from non void elements', function() {
+    el('img', { src: 'http://example.com/img.png' }).should.eql('<img src="http://example.com/img.png">');
+    el('iframe', { src: 'http://example.com' }).should.eql('<iframe src="http://example.com"></iframe>');
+  });
+
 });

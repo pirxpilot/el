@@ -1,8 +1,14 @@
 module.exports = el;
 
+// see: http://www.w3.org/html/wg/drafts/html/master/single-page.html#void-elements
+var voids = [
+  'area', 'base', 'br', 'col', 'embed',
+  'hr', 'img', 'input', 'keygen', 'link',
+  'menuitem', 'meta', 'param', 'source', 'track', 'wbr'
+];
 
 function el(tag, content, attrs) {
-  var attrStr, classes, ids;
+  var attrStr, classes, ids, text;
 
   if (typeof content !== 'string') {
     attrs = content;
@@ -33,13 +39,19 @@ function el(tag, content, attrs) {
     return attr +  '="' + attrs[attr] + '"';
   }).join(' ');
 
-  return ['<',
+
+  text = ['<',
     tag,
     attrStr ? ' ' + attrStr :  '',
-    '>',
-    content,
-    '</',
-    tag,
     '>'
-  ].join('');
+  ];
+  if(voids.indexOf(tag) < 0) {
+    text = text.concat([
+      content,
+      '</',
+      tag,
+      '>'
+    ]);
+  }
+  return text.join('');
 }
