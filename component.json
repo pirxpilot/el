@@ -2,7 +2,7 @@
   "name": "el",
   "repo": "code42day/el",
   "description": "creates HTML from jade like expressions",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "keywords": [],
   "dependencies": {},
   "development": {},

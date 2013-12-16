@@ -1,6 +1,6 @@
 {
   "name": "el-component",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "create HTML from jade-like expressions",
   "main": "index.js",
   "scripts": {
