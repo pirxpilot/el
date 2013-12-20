@@ -1,3 +1,6 @@
+[![Build Status](https://secure.travis-ci.org/code42day/el.png)](http://travis-ci.org/code42day/el)
+[![Dependency Status](https://gemnasium.com/code42day/el.png)](https://gemnasium.com/code42day/el)
+[![NPM version](https://badge.fury.io/js/el-component.png)](http://badge.fury.io/js/el-component)
 
 # el
 
