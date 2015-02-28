@@ -1,4 +1,5 @@
 var el = require('..');
+var xml = el.xml;
 
 /* global describe, it */
 
@@ -32,4 +33,33 @@ describe('el', function() {
     el('iframe', { src: 'http://example.com' }).should.eql('<iframe src="http://example.com"></iframe>');
   });
 
+});
+
+describe('xml', function() {
+
+  it('should render empty elements', function() {
+    xml('svg').should.eql('<svg/>');
+  });
+
+  it('should ignore voids', function() {
+    xml('img', { src: 'http://example.com/img.png' }).should.eql('<img src="http://example.com/img.png"/>');
+  });
+
+  it('should render content without attributes', function() {
+    xml('path', 'some text inside').should.eql('<path>some text inside</path>');
+  });
+
+  it('should render attributes without content', function() {
+    xml('path', {
+      width: 1,
+      height: '0.5em'
+    }).should.eql('<path width="1" height="0.5em"/>');
+  });
+
+  it('should render attributes with content', function() {
+    xml('item', 'some text', {
+      width: 1,
+      height: '0.5em'
+    }).should.eql('<item width="1" height="0.5em">some text</item>');
+  });
 });

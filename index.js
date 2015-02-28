@@ -1,5 +1,3 @@
-module.exports = el;
-
 // see: http://www.w3.org/html/wg/drafts/html/master/single-page.html#void-elements
 var voids = [
   'area', 'base', 'br', 'col', 'embed',
@@ -27,7 +25,26 @@ function htmlTag(tag, content, attrStr) {
   return text;
 }
 
-function el(tag, content, attrs) {
+function xmlTag(tag, content, attrStr) {
+  var text = ['<',
+    tag,
+    attrStr ? ' ' + attrStr :  '',
+  ];
+  if (!content || !content.length) {
+    text.push('/>');
+  } else {
+    text = text.concat([
+      '>',
+      content,
+      '</',
+      tag,
+      '>'
+    ]);
+  }
+  return text;
+}
+
+function toStr(tagFn, tag, content, attrs) {
   var attrStr, classes, ids;
 
   if (typeof content !== 'string') {
@@ -58,5 +75,8 @@ function el(tag, content, attrs) {
     return attr +  '="' + attrs[attr] + '"';
   }).join(' ');
 
-  return htmlTag(tag, content, attrStr).join('');
+  return tagFn(tag, content, attrStr).join('');
 }
+
+module.exports = toStr.bind(null, htmlTag);
+module.exports.xml = toStr.bind(null, xmlTag);
