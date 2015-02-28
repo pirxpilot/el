@@ -5,7 +5,10 @@ var voids = [
   'area', 'base', 'br', 'col', 'embed',
   'hr', 'img', 'input', 'keygen', 'link',
   'menuitem', 'meta', 'param', 'source', 'track', 'wbr'
-];
+].reduce(function(o, v) {
+  o[v] = true;
+  return o;
+}, Object.create(null));
 
 function el(tag, content, attrs) {
   var attrStr, classes, ids, text;
@@ -45,7 +48,7 @@ function el(tag, content, attrs) {
     attrStr ? ' ' + attrStr :  '',
     '>'
   ];
-  if(voids.indexOf(tag) < 0) {
+  if(!voids[tag]) {
     text = text.concat([
       content,
       '</',
