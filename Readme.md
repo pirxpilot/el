@@ -42,6 +42,14 @@ el knows about void elements:
     el('iframe', { src: 'http://example.com' });      // <iframe src="http://example.com"></iframe>
 
 
+### el.xml(tag, content, attributes)
+
+A version of `el` that can be used to render XML (SVG etc.). It has no notion of voids, which means it closes tags without content with `/>`.
+
+Some examples:
+
+    el.xml('path', { d: 'M0 0H5V7Z' }); // <path d="M0 0H5V7Z"/>
+
 ## License
 
   MIT

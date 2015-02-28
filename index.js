@@ -1,5 +1,3 @@
-module.exports = el;
-
 // see: http://www.w3.org/html/wg/drafts/html/master/single-page.html#void-elements
 var voids = [
   'area', 'base', 'br', 'col', 'embed',
@@ -10,8 +8,44 @@ var voids = [
   return o;
 }, Object.create(null));
 
-function el(tag, content, attrs) {
-  var attrStr, classes, ids, text;
+function htmlTag(tag, content, attrStr) {
+  var text = ['<',
+    tag,
+    attrStr ? ' ' + attrStr :  '',
+    '>'
+  ];
+  if(!voids[tag]) {
+    text = text.concat([
+      content || '',
+      '</',
+      tag,
+      '>'
+    ]);
+  }
+  return text;
+}
+
+function xmlTag(tag, content, attrStr) {
+  var text = ['<',
+    tag,
+    attrStr ? ' ' + attrStr :  '',
+  ];
+  if (!content || !content.length) {
+    text.push('/>');
+  } else {
+    text = text.concat([
+      '>',
+      content,
+      '</',
+      tag,
+      '>'
+    ]);
+  }
+  return text;
+}
+
+function toStr(tagFn, tag, content, attrs) {
+  var attrStr, classes, ids;
 
   if (typeof content !== 'string') {
     attrs = content;
@@ -19,7 +53,6 @@ function el(tag, content, attrs) {
   }
 
   tag = tag || '';
-  content = content || '';
   attrs = attrs || {};
 
   classes = tag.split('.');
@@ -42,19 +75,8 @@ function el(tag, content, attrs) {
     return attr +  '="' + attrs[attr] + '"';
   }).join(' ');
 
-
-  text = ['<',
-    tag,
-    attrStr ? ' ' + attrStr :  '',
-    '>'
-  ];
-  if(!voids[tag]) {
-    text = text.concat([
-      content,
-      '</',
-      tag,
-      '>'
-    ]);
-  }
-  return text.join('');
+  return tagFn(tag, content, attrStr).join('');
 }
+
+module.exports = toStr.bind(null, htmlTag);
+module.exports.xml = toStr.bind(null, xmlTag);
