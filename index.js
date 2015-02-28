@@ -10,8 +10,25 @@ var voids = [
   return o;
 }, Object.create(null));
 
+function htmlTag(tag, content, attrStr) {
+  var text = ['<',
+    tag,
+    attrStr ? ' ' + attrStr :  '',
+    '>'
+  ];
+  if(!voids[tag]) {
+    text = text.concat([
+      content || '',
+      '</',
+      tag,
+      '>'
+    ]);
+  }
+  return text;
+}
+
 function el(tag, content, attrs) {
-  var attrStr, classes, ids, text;
+  var attrStr, classes, ids;
 
   if (typeof content !== 'string') {
     attrs = content;
@@ -19,7 +36,6 @@ function el(tag, content, attrs) {
   }
 
   tag = tag || '';
-  content = content || '';
   attrs = attrs || {};
 
   classes = tag.split('.');
@@ -42,19 +58,5 @@ function el(tag, content, attrs) {
     return attr +  '="' + attrs[attr] + '"';
   }).join(' ');
 
-
-  text = ['<',
-    tag,
-    attrStr ? ' ' + attrStr :  '',
-    '>'
-  ];
-  if(!voids[tag]) {
-    text = text.concat([
-      content,
-      '</',
-      tag,
-      '>'
-    ]);
-  }
-  return text.join('');
+  return htmlTag(tag, content, attrStr).join('');
 }
