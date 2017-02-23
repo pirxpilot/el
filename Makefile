@@ -1,20 +1,22 @@
-NODE_BIN=./node_modules/.bin
+PROJECT=jsonp
 
-check: lint test
+all: check build
+
+check: lint
 
 lint:
-	$(NODE_BIN)/jshint index.js test
+	jshint index.js
 
-test:
-	$(NODE_BIN)/mocha --require should test
+build: build/build.js
 
-build: components index.js
-	@component build --dev
+build/build.js: node_modules index.js
+	mkdir -p build
+	browserify --require ./index.js:$(PROJECT) --outfile $@
 
-components: component.json
-	@component install --dev
+node_modules: package.json
+	npm install
 
 clean:
-	rm -fr build components
+	rm -fr build node_modules
 
-.PHONY: clean lint check test
+.PHONY: clean lint check all build

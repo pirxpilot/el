@@ -1,5 +1,5 @@
-[![Build Status](https://img.shields.io/travis/code42day/el.svg)](http://travis-ci.org/code42day/el)
-[![Dependency Status](https://img.shields.io/gemnasium/code42day/el.svg)](https://gemnasium.com/code42day/el)
+[![Build Status](https://img.shields.io/travis/pirxpilot/el.svg)](http://travis-ci.org/pirxpilot/el)
+[![Dependency Status](https://img.shields.io/gemnasium/pirxpilot/el.svg)](https://gemnasium.com/pirxpilot/el)
 [![NPM version](https://img.shields.io/npm/v/el-component.svg)](http://badge.fury.io/js/el-component)
 
 # el
@@ -11,9 +11,9 @@ thing `el` works just as well.
 
 ## Installation
 
-  Install with [component(1)](http://component.io):
+  Install with [npm]:
 
-    $ component install code42day/el
+    $ npm install el-component
 
 ## API
 
@@ -55,3 +55,4 @@ Some examples:
   MIT
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/Element.insertAdjacentHTML
+[npm]: https://www.npmjs.org/
