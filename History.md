@@ -1,4 +1,10 @@
 
+1.0.1 / 2017-02-22
+==================
+
+ * transfer repo to pirxpilot
+ * update travis - node 0.10 only
+
 1.0.0 / 2015-02-28
 ==================
 
