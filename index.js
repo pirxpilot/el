@@ -19,19 +19,19 @@ const voids = new Set([
 ]);
 
 function htmlTag(tag, content, attrStr) {
-  let text = ['<', tag, attrStr ? ` ${attrStr}` : '', '>'];
+  const text = ['<', tag, attrStr ? ` ${attrStr}` : '', '>'];
   if (!voids.has(tag)) {
-    text = text.concat([content || '', '</', tag, '>']);
+    text.push(content || '', '</', tag, '>');
   }
   return text;
 }
 
 function xmlTag(tag, content, attrStr) {
-  let text = ['<', tag, attrStr ? ` ${attrStr}` : ''];
+  const text = ['<', tag, attrStr ? ` ${attrStr}` : ''];
   if (!content || !content.length) {
     text.push('/>');
   } else {
-    text = text.concat(['>', content, '</', tag, '>']);
+    text.push('>', content, '</', tag, '>');
   }
   return text;
 }
