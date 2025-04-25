@@ -36,23 +36,21 @@ function xmlTag(tag, content, attrStr) {
   return text;
 }
 
-function toStr(tagFn, tag, content, attrs) {
+function toStr(tagFn, tagStr, content, attrs) {
   if (typeof content !== 'string') {
     attrs = content;
     content = '';
   }
 
-  tag = tag || '';
   attrs = attrs || {};
 
-  let classes = tag.split('.');
-  tag = classes.shift() || 'div';
+  let [tag = 'div', ...classes] = tagStr?.split('.') || [];
   if (classes.length) {
-    classes = classes.join(' ');
+    const classesStr = classes.join(' ');
     if (attrs['class']) {
-      attrs['class'] += ` ${classes}`;
+      attrs['class'] += ` ${classesStr}`;
     } else {
-      attrs['class'] = classes;
+      attrs['class'] = classesStr;
     }
   }
   const ids = tag.split('#');
@@ -61,10 +59,8 @@ function toStr(tagFn, tag, content, attrs) {
     attrs.id = ids[1];
   }
 
-  const attrStr = Object.keys(attrs)
-    .map(function (attr) {
-      return `${attr}="${attrs[attr]}"`;
-    })
+  const attrStr = Object.entries(attrs)
+    .map(([attr, value]) => `${attr}="${value}"`)
     .join(' ');
 
   return tagFn(tag, content, attrStr).join('');
