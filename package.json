@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pirxpilot/el.git"
+    "url": "git+https://github.com/pirxpilot/el.git"
   },
   "keywords": [
     "component-js",
@@ -20,8 +20,6 @@
   "license": "MIT",
   "readmeFilename": "Readme.md",
   "devDependencies": {
-    "mocha": "~1",
-    "should": "~2",
-    "jshint": "~2"
+    "@biomejs/biome": "^1.9.4"
   }
 }
