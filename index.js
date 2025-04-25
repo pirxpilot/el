@@ -22,7 +22,7 @@ const voids = [
 }, Object.create(null));
 
 function htmlTag(tag, content, attrStr) {
-  let text = ['<', tag, attrStr ? ' ' + attrStr : '', '>'];
+  let text = ['<', tag, attrStr ? ` ${attrStr}` : '', '>'];
   if (!voids[tag]) {
     text = text.concat([content || '', '</', tag, '>']);
   }
@@ -30,7 +30,7 @@ function htmlTag(tag, content, attrStr) {
 }
 
 function xmlTag(tag, content, attrStr) {
-  let text = ['<', tag, attrStr ? ' ' + attrStr : ''];
+  let text = ['<', tag, attrStr ? ` ${attrStr}` : ''];
   if (!content || !content.length) {
     text.push('/>');
   } else {
@@ -53,7 +53,7 @@ function toStr(tagFn, tag, content, attrs) {
   if (classes.length) {
     classes = classes.join(' ');
     if (attrs['class']) {
-      attrs['class'] += ' ' + classes;
+      attrs['class'] += ` ${classes}`;
     } else {
       attrs['class'] = classes;
     }
@@ -66,7 +66,7 @@ function toStr(tagFn, tag, content, attrs) {
 
   const attrStr = Object.keys(attrs)
     .map(function (attr) {
-      return attr + '="' + attrs[attr] + '"';
+      return `${attr}="${attrs[attr]}"`;
     })
     .join(' ');
 
