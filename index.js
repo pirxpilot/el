@@ -1,5 +1,5 @@
 // see: http://www.w3.org/html/wg/drafts/html/master/single-page.html#void-elements
-const voids = [
+const voids = new Set([
   'area',
   'base',
   'br',
@@ -16,14 +16,11 @@ const voids = [
   'source',
   'track',
   'wbr'
-].reduce(function (o, v) {
-  o[v] = true;
-  return o;
-}, Object.create(null));
+]);
 
 function htmlTag(tag, content, attrStr) {
   let text = ['<', tag, attrStr ? ` ${attrStr}` : '', '>'];
-  if (!voids[tag]) {
+  if (!voids.has(tag)) {
     text = text.concat([content || '', '</', tag, '>']);
   }
   return text;
