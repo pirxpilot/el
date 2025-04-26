@@ -1,22 +1,15 @@
-PROJECT=jsonp
-
-all: check build
-
-check: lint
+check: lint test
 
 lint:
-	jshint index.js
+	./node_modules/.bin/biome ci
 
-build: build/build.js
+format:
+	./node_modules/.bin/biome check --fix
 
-build/build.js: node_modules index.js
-	mkdir -p build
-	browserify --require ./index.js:$(PROJECT) --outfile $@
+test:
+	node --test $(TEST_OPTS)
 
-node_modules: package.json
-	npm install
+test-cov: TEST_OPTS := --experimental-test-coverage
+test-cov: test
 
-clean:
-	rm -fr build node_modules
-
-.PHONY: clean lint check all build
+.PHONY: check format lint test test-cov

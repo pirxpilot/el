@@ -1,6 +1,6 @@
-[![Build Status](https://img.shields.io/travis/pirxpilot/el.svg)](http://travis-ci.org/pirxpilot/el)
-[![Dependency Status](https://img.shields.io/gemnasium/pirxpilot/el.svg)](https://gemnasium.com/pirxpilot/el)
-[![NPM version](https://img.shields.io/npm/v/el-component.svg)](http://badge.fury.io/js/el-component)
+[![NPM version][npm-image]][npm-url]
+[![Build Status][build-image]][build-url]
+[![Dependency Status][deps-image]][deps-url]
 
 # el
 
@@ -52,7 +52,16 @@ Some examples:
 
 ## License
 
-  MIT
+MIT © [Damian Krzeminski](https://pirxpilot.me)
+
+[npm-image]: https://img.shields.io/npm/v/el-component
+[npm-url]: https://npmjs.org/package/el-component
+
+[build-url]: https://github.com/pirxpilot/el/actions/workflows/check.yaml
+[build-image]: https://img.shields.io/github/actions/workflow/status/pirxpilot/el/check.yaml?branch=main
+
+[deps-image]: https://img.shields.io/librariesio/release/npm/el-component
+[deps-url]: https://libraries.io/npm/el-component
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/Element.insertAdjacentHTML
 [npm]: https://www.npmjs.org/
