@@ -19,8 +19,10 @@
   ],
   "author": "Damian Krzeminski <pirxpilot@furkot.com>",
   "license": "MIT",
-  "readmeFilename": "Readme.md",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4"
-  }
+  },
+  "files": [
+    "index.js"
+  ]
 }
