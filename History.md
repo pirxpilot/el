@@ -1,4 +1,10 @@
 
+2.0.0 / 2025-04-26
+==================
+
+ * transition to ESM format
+ * use `biome` instead of `jshint`
+
 1.0.1 / 2017-02-22
 ==================
 
