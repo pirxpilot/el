@@ -1,6 +1,5 @@
-const { describe, it } = require('node:test');
-const el = require('..');
-const { xml } = el;
+import { describe, it } from 'node:test';
+import el, { xml } from '../index.js';
 
 /* global describe, it */
 

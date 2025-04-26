@@ -66,5 +66,5 @@ function toStr(tagFn, tagStr, content, attrs) {
   return tagFn(tag, content, attrStr).join('');
 }
 
-module.exports = toStr.bind(null, htmlTag);
-module.exports.xml = toStr.bind(null, xmlTag);
+export default toStr.bind(null, htmlTag);
+export const xml = toStr.bind(null, xmlTag);

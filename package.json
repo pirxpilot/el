@@ -2,7 +2,8 @@
   "name": "el-component",
   "version": "1.0.1",
   "description": "create HTML from jade-like expressions",
-  "main": "index.js",
+  "type": "module",
+  "exports": "index.js",
   "scripts": {
     "test": "make check"
   },
