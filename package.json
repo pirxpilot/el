@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "create HTML from jade-like expressions",
   "type": "module",
-  "exports": "index.js",
+  "exports": "./index.js",
   "scripts": {
     "test": "make check"
   },
